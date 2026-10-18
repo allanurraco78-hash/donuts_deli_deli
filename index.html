@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donuts | Un dulce momento en cada bocado</title>
+  <meta name="description" content="Donuts: donas y smoothies hechos con amor. Haz tu pedido en línea.">
+  <link rel="icon" href="images/logo-donuts.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ENCABEZADO: logo a la izquierda + menú -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#inicio" class="header__logo"><img src="images/logo-donuts.jpeg" alt="Logo oficial de Donuts"></a>
+    <nav id="menu" class="nav" aria-label="Menú principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#promociones">Promos</a>
+      <a href="#galeria">Galería</a>
+      <a href="#pedido">Pedido</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn-cart" id="btnAbrirCarrito" aria-label="Abrir carrito">🛒 <span id="contadorCarrito">0</span></button>
+    <button class="burger" id="btnMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- INICIO -->
+<section id="inicio" class="hero">
+  <div class="container hero__inner">
+    <div class="hero__texto">
+      <h1>Donuts</h1>
+      <p class="hero__eslogan">Un dulce momento en cada bocado</p>
+      <p>Endulzamos tus días con nuestras deliciosas donas y refrescantes smoothies.</p>
+      <div class="hero__botones">
+        <a href="#catalogo" class="btn btn--primario">Ver catálogo</a>
+        <a href="#pedido" class="btn btn--secundario">Hacer pedido</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <img class="hero__logo" src="images/logo-donuts.jpeg" alt="Logo oficial de Donuts">
+      <img class="hero__foto hero__foto--1" data-foto="dona" alt="Donas glaseadas con chispas de colores" loading="eager">
+      <img class="hero__foto hero__foto--2" data-foto="smoothie" alt="Smoothie de fresa con crema" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="seccion">
+  <div class="container">
+    <h2 class="titulo">Nosotros</h2>
+    <p class="subtitulo">Donuts nació con la idea de ofrecer productos dulces, frescos, deliciosos y de buena calidad, preparados para compartir momentos especiales con amigos y familiares.</p>
+    <div class="grid grid--2">
+      <article class="tarjeta"><h3>💖 Misión</h3><p>Ofrecer donas y smoothies deliciosos, frescos y de calidad, brindando una experiencia agradable a cada cliente.</p></article>
+      <article class="tarjeta"><h3>🍩 Visión</h3><p>Convertirnos en un emprendimiento reconocido por la creatividad, el sabor y la calidad de nuestros productos.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="seccion seccion--rosa">
+  <div class="container">
+    <h2 class="titulo">Nuestro catálogo</h2>
+    <div class="herramientas">
+      <label class="sr-only" for="buscador">Buscar productos</label>
+      <input type="search" id="buscador" placeholder="🔍 Buscar dona o smoothie...">
+      <div class="filtros" role="group" aria-label="Filtrar productos">
+        <button class="filtro activo" data-filtro="todos">Todos</button>
+        <button class="filtro" data-filtro="dona">Donas</button>
+        <button class="filtro" data-filtro="smoothie">Smoothies</button>
+      </div>
+    </div>
+    <div id="bloqueDonas">
+      <h3 class="subseccion">🍩 Donas</h3>
+      <div class="grid grid--4" id="gridDonas"></div>
+    </div>
+    <div id="bloqueSmoothies">
+      <h3 class="subseccion">🥤 Smoothies</h3>
+      <div class="grid grid--4" id="gridSmoothies"></div>
+    </div>
+    <p id="sinResultados" class="aviso" hidden>No encontramos productos con esa búsqueda. Prueba con otra palabra, por ejemplo “fresa” o “chocolate”.</p>
+    <p class="nota">Los precios son ejemplos editables para el proyecto académico.</p>
+  </div>
+</section>
+
+<!-- PROMOCIONES -->
+<section id="promociones" class="seccion">
+  <div class="container">
+    <h2 class="titulo">Promociones especiales</h2>
+    <div class="grid grid--3" id="gridPromos"></div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="seccion seccion--crema">
+  <div class="container">
+    <h2 class="titulo">Galería</h2>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones" class="seccion">
+  <div class="container">
+    <h2 class="titulo">Opiniones de clientes</h2>
+    <p class="subtitulo">Testimonios de ejemplo con nombres ficticios, solo con fines demostrativos.</p>
+    <div class="grid grid--3">
+      <blockquote class="tarjeta"><p>“Las donas de Oreo son mi favoritas, siempre llegan frescas.”</p><footer>— María G. (ejemplo)</footer></blockquote>
+      <blockquote class="tarjeta"><p>“El smoothie tropical es refrescante y el pedido fue muy fácil.”</p><footer>— Carlos R. (ejemplo)</footer></blockquote>
+      <blockquote class="tarjeta"><p>“Pedimos el combo para compartir y a todos les encantó.”</p><footer>— Ana L. (ejemplo)</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PEDIDO -->
+<section id="pedido" class="seccion seccion--rosa">
+  <div class="container grid grid--pedido">
+    <div class="tarjeta">
+      <h2 class="titulo titulo--izq">Haz tu pedido</h2>
+      <form id="formPedido" novalidate>
+        <label for="nombre">Nombre del cliente *</label>
+        <input id="nombre" type="text" autocomplete="name" required>
+        <small class="error" id="errNombre"></small>
+
+        <label for="telefono">Número de teléfono *</label>
+        <input id="telefono" type="tel" autocomplete="tel" placeholder="Ej: 9999-9999" required>
+        <small class="error" id="errTelefono"></small>
+
+        <label for="entrega">Método de entrega *</label>
+        <select id="entrega"><option value="Recoger en el local">Recoger en el local</option><option value="Entrega a domicilio">Entrega a domicilio</option></select>
+
+        <div id="campoDireccion" hidden>
+          <label for="direccion">Dirección de entrega *</label>
+          <input id="direccion" type="text" autocomplete="street-address">
+          <small class="error" id="errDireccion"></small>
+        </div>
+
+        <label for="pago">Método de pago *</label>
+        <select id="pago"><option>Efectivo</option><option>Transferencia</option></select>
+
+        <label for="productosSel">Productos seleccionados</label>
+        <textarea id="productosSel" rows="3" readonly placeholder="Agrega productos desde el catálogo"></textarea>
+        <small class="error" id="errProductos"></small>
+
+        <label for="notas">Indicaciones adicionales</label>
+        <textarea id="notas" rows="2"></textarea>
+
+        <button type="submit" class="btn btn--primario">Confirmar pedido</button>
+      </form>
+    </div>
+    <div class="tarjeta resumen" id="resumen" aria-live="polite">
+      <h3>Resumen del pedido</h3>
+      <p class="aviso">Aquí aparecerá el resumen cuando confirmes tu pedido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section id="faq" class="seccion">
+  <div class="container container--angosto">
+    <h2 class="titulo">Preguntas frecuentes</h2>
+    <details><summary>¿Qué sabores de donas ofrecen?</summary><p>Clásica glaseada, chocolate, chispas de colores, rellena de crema, rellena de fresa, Oreo, chocolate blanco y la especial de la casa.</p></details>
+    <details><summary>¿Qué sabores de smoothies están disponibles?</summary><p>Fresa, mango, banano, piña, frutos rojos, chocolate, Oreo y tropical.</p></details>
+    <details><summary>¿Cómo puedo realizar un pedido?</summary><p>Agrega productos al carrito, completa el formulario y envía el pedido por WhatsApp.</p></details>
+    <details><summary>¿Cuáles son los métodos de pago?</summary><p>Efectivo o transferencia.</p></details>
+    <details><summary>¿Ofrecen entregas a domicilio?</summary><p>Sí, puedes elegir entrega a domicilio o recoger en el local al hacer tu pedido.</p></details>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="seccion seccion--crema">
+  <div class="container">
+    <h2 class="titulo">Contacto y ubicación</h2>
+    <div class="grid grid--2">
+      <div class="tarjeta">
+        <ul class="lista-contacto">
+          <li>📞 Teléfono: <span data-contacto="telefono"></span></li>
+          <li>💬 WhatsApp: <a data-contacto="whatsapp" href="#" target="_blank" rel="noopener"></a></li>
+          <li>✉️ Correo: <span data-contacto="correo"></span></li>
+          <li>📍 Dirección: <span data-contacto="direccion"></span></li>
+          <li>🕒 Horario: <span data-contacto="horario"></span></li>
+        </ul>
+        <div class="redes">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <!-- MAPA: cuando tengas la dirección real, pega aquí el iframe de Google Maps (Compartir > Incorporar un mapa) -->
+      <div class="tarjeta mapa"><p>🗺️ Aquí irá el mapa del local cuando tengas una dirección real.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <img src="images/logo-donuts.jpeg" alt="Logo oficial de Donuts" class="footer__logo">
+      <p><strong>Donuts</strong></p>
+      <p>Hechas con amor, para endulzar tu día</p>
+    </div>
+    <div>
+      <h4>Enlaces</h4>
+      <a href="#inicio">Inicio</a> <a href="#catalogo">Catálogo</a> <a href="#promociones">Promos</a> <a href="#pedido">Pedido</a>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+      <p class="footer__contacto">📞 <span data-contacto="telefono"></span></p>
+    </div>
+  </div>
+  <p class="footer__legal">© 2026 Donuts. Todos los derechos reservados. Proyecto académico de Desarrollo Web.</p>
+</footer>
+
+<!-- CARRITO (panel lateral) -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="carrito" id="carrito" aria-label="Carrito de compras" aria-hidden="true">
+  <div class="carrito__cabecera"><h2>Tu carrito</h2><button id="btnCerrarCarrito" aria-label="Cerrar carrito">✕</button></div>
+  <div id="listaCarrito" class="carrito__lista"></div>
+  <div class="carrito__pie">
+    <p>Productos: <strong id="totalUnidades">0</strong></p>
+    <p class="carrito__total">Total: <strong id="totalCarrito">L 0</strong></p>
+    <a href="#pedido" class="btn btn--primario" id="btnIrPedido">Hacer pedido</a>
+    <button class="btn btn--secundario" id="btnVaciar">Vaciar carrito</button>
+  </div>
+</aside>
+
+<a id="btnWhatsapp" class="wa-flotante" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
